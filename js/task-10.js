@@ -16,17 +16,13 @@ function createBoxes(amount) {
   let size = 30;
   for (let i = 0; i < amount; i += 1) {
     const createDiv = document.createElement('div');
-    createDiv.style.width = `${size}px`;
-    createDiv.style.height = `${size}px`;
+    createDiv.style.width = `${size}`;
+    createDiv.style.height = `${size}`;
     createDiv.style.backgroundColor = getRandomHexColor();
     boxes.push(createDiv);
     size += 10;
   }
   refs.divBoxes.append(...boxes);
-}
-
-function destroyBoxes() {
-  refs.divBoxes.innerHTML = '';
 }
 
 
@@ -35,4 +31,6 @@ refs.btnCreate.addEventListener('click', () => {
   createBoxes(amount);
 });
 
-refs.btnDestroy.addEventListener('click', (destroyBoxes));
+refs.btnDestroy.addEventListener('click', () => {
+  refs.divBoxes.innerHTML = '';
+});
